@@ -1,0 +1,177 @@
+<Page x:Class="BasketballRulesCms.App.Views.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:fa5="http://schemas.fontawesome.com/icons/"
+      Background="#151515">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="420"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ══ Leva strana — branding  ═══════════════════════ -->
+        <Grid Grid.Column="0" Background="#1A1A1A">
+
+            <!-- Narandžasta leva vertikalna linija  -->
+            <Rectangle HorizontalAlignment="Left" Width="6" Fill="#FF6B00"/>
+
+            <StackPanel VerticalAlignment="Center" Margin="50,0,40,0">
+
+                <!-- Basketball logo + ime -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Viewbox Width="44" Height="44" Margin="0,0,14,0">
+                        <Canvas Width="44" Height="44">
+                            <Ellipse Width="42" Height="42" Canvas.Left="1" Canvas.Top="1"
+                                     Stroke="#FF6B00" StrokeThickness="3" Fill="#1A1A1A"/>
+                            <Line X1="1" Y1="22" X2="43" Y2="22" Stroke="#FF6B00" StrokeThickness="2"/>
+                            <Line X1="22" Y1="1" X2="22" Y2="43" Stroke="#FF6B00" StrokeThickness="2"/>
+                            <Path Data="M9,6 Q22,17 9,38"  Stroke="#FF6B00" StrokeThickness="2" Fill="Transparent"/>
+                            <Path Data="M35,6 Q22,17 35,38" Stroke="#FF6B00" StrokeThickness="2" Fill="Transparent"/>
+                        </Canvas>
+                    </Viewbox>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="BASKETBALL RULES"
+                                   Foreground="White"
+                                   FontFamily="Agency FB, Impact, Arial Black"
+                                   FontSize="28" FontWeight="Bold" Padding="0"/>
+                        <TextBlock Text="CONTENT MANAGEMENT SYSTEM"
+                                   Foreground="#FF6B00"
+                                   FontFamily="Agency FB, Impact, Arial Black"
+                                   FontSize="13" Padding="0" Margin="0,-6,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Crvena linija  -->
+                <Rectangle Height="2" Fill="#FF6B00" Margin="0,10,0,28"/>
+
+                <!-- Stat boxes (trophy/users/flag → basket/court/rules) -->
+                <Border Background="#252525" CornerRadius="4" Padding="15,11" Margin="0,0,0,10">
+                    <StackPanel Orientation="Horizontal">
+                        <fa5:SvgAwesome Icon="Solid_Trophy" Height="22" Width="22"
+                                        Foreground="#FFD700" VerticalAlignment="Center" Margin="0,0,14,0"/>
+                        <StackPanel>
+                            <TextBlock Text="FIBA PRAVILA"
+                                       Foreground="White"
+                                       FontFamily="Agency FB, Impact, Arial Black" FontSize="16"/>
+                            <TextBlock Text="Međunarodni košarkaški pravilnik"
+                                       Foreground="#666" FontFamily="Segoe UI" FontSize="11" Margin="0,-3,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="#252525" CornerRadius="4" Padding="15,11" Margin="0,0,0,10">
+                    <StackPanel Orientation="Horizontal">
+                        <fa5:SvgAwesome Icon="Solid_Users" Height="22" Width="22"
+                                        Foreground="#FF6B00" VerticalAlignment="Center" Margin="0,0,14,0"/>
+                        <StackPanel>
+                            <TextBlock Text="2 TIPA KORISNIKA"
+                                       Foreground="White"
+                                       FontFamily="Agency FB, Impact, Arial Black" FontSize="16"/>
+                            <TextBlock Text="Admin i Posetilac sa različitim pravima"
+                                       Foreground="#666" FontFamily="Segoe UI" FontSize="11" Margin="0,-3,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="#252525" CornerRadius="4" Padding="15,11">
+                    <StackPanel Orientation="Horizontal">
+                        <fa5:SvgAwesome Icon="Solid_Book" Height="22" Width="22"
+                                        Foreground="#FF6B00" VerticalAlignment="Center" Margin="0,0,14,0"/>
+                        <StackPanel>
+                            <TextBlock Text="PUNO PRAVILA"
+                                       Foreground="White"
+                                       FontFamily="Agency FB, Impact, Arial Black" FontSize="16"/>
+                            <TextBlock Text="Dodaj, izmeni ili obriši pravila igre"
+                                       Foreground="#666" FontFamily="Segoe UI" FontSize="11" Margin="0,-3,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </Grid>
+
+        <!-- Vertikalni separator -->
+        <Rectangle Grid.Column="0" HorizontalAlignment="Right" Width="1" Fill="#383838"/>
+
+        <!-- ══ Desna strana — login forma ════════════════════════════════ -->
+        <Grid Grid.Column="1" Background="#1F1F1F">
+            <StackPanel VerticalAlignment="Center" Margin="40,0">
+
+                <TextBlock Text="PRIJAVA"
+                           Foreground="White"
+                           FontFamily="Agency FB, Impact, Arial Black"
+                           FontSize="36" FontWeight="Bold"
+                           HorizontalAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#FF6B00" Direction="0" ShadowDepth="0" BlurRadius="18" Opacity="0.7"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+                <TextBlock Text="Unesi korisničke podatke za nastavak"
+                           Foreground="#666" FontFamily="Segoe UI" FontSize="12"
+                           HorizontalAlignment="Center" Margin="0,4,0,28"/>
+
+                <!-- Username -->
+                <TextBlock Style="{StaticResource FieldLabel}" Text="Korisničko ime"/>
+                <TextBox x:Name="UsernameBox"
+                         Style="{StaticResource PrimaryTb}"
+                         ToolTip="Unesi korisničko ime"
+                         KeyDown="Input_KeyDown"/>
+                <TextBlock x:Name="UsernameErr"
+                           Style="{StaticResource ValidationText}"
+                           Visibility="Collapsed"/>
+
+                <!-- Password -->
+                <TextBlock Style="{StaticResource FieldLabel}" Margin="0,14,0,5" Text="Lozinka"/>
+                <Grid>
+                    <PasswordBox x:Name="PasswordBox"
+                                 Style="{StaticResource PrimaryPb}"
+                                 ToolTip="Unesi lozinku"
+                                 GotFocus="Password_GotFocus"
+                                 LostFocus="Password_LostFocus"
+                                 KeyDown="Input_KeyDown"/>
+                    <TextBlock x:Name="PasswordPlaceholder"
+                               Text="Unesi lozinku"
+                               Foreground="#666" FontFamily="Segoe UI" FontSize="13"
+                               VerticalAlignment="Center" Margin="12,0,0,0"
+                               IsHitTestVisible="False"/>
+                </Grid>
+                <TextBlock x:Name="PasswordErr"
+                           Style="{StaticResource ValidationText}"
+                           Visibility="Collapsed"/>
+
+                <!-- Auth error panel -->
+                <Border x:Name="AuthErrPanel"
+                        Background="#2B0A00" BorderBrush="#CC2200" BorderThickness="1"
+                        CornerRadius="4" Padding="12,8" Margin="0,12,0,0"
+                        Visibility="Collapsed">
+                    <TextBlock x:Name="AuthErrText" Foreground="#FF4444" FontSize="13" TextWrapping="Wrap"/>
+                </Border>
+
+                <!-- Buttons -->
+                <Button Style="{StaticResource PrimaryBtn}"
+                        Margin="0,24,0,0" Click="Login_Click"
+                        ToolTip="Prijavi se u sistem">
+                    <StackPanel Orientation="Horizontal">
+                        <fa5:SvgAwesome Icon="Solid_SignInAlt" Height="13" Foreground="#0A0A0A" Margin="0,0,8,0"/>
+                        <TextBlock Text="PRIJAVI SE" VerticalAlignment="Center" Foreground="#0A0A0A"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource SecondaryBtn}"
+                        Margin="0,8,0,0" Click="Exit_Click"
+                        ToolTip="Zatvori aplikaciju">
+                    <StackPanel Orientation="Horizontal">
+                        <fa5:SvgAwesome Icon="Solid_Times" Height="13" Foreground="#AAAAAA" Margin="0,0,8,0"/>
+                        <TextBlock Text="IZLAZ" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <TextBlock Text="Demo: admin / admin123  ·  visitor / visitor123"
+                           Foreground="#444" FontSize="11" HorizontalAlignment="Center"
+                           Margin="0,18,0,0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

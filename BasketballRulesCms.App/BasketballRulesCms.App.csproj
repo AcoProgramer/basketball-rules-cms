@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>BasketballRulesCms.App</RootNamespace>
+    <AssemblyTitle>Basketball Rules CMS</AssemblyTitle>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- FontAwesome icons (same as F1 project) -->
+    <PackageReference Include="FontAwesome5" Version="2.1.11" />
+    <!-- Toast notifications (same as F1 project) -->
+    <PackageReference Include="Notification.Wpf" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

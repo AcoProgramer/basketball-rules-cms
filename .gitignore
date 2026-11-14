@@ -1,0 +1,16 @@
+.vs/
+.idea/
+.vscode/
+**/bin/
+**/obj/
+**/Data/
+*.user
+*.suo
+*.log
+*.pdb
+*.cache
+*_wpftmp.csproj
+TestResults/
+.env
+.env.*
+!.env.example
